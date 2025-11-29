@@ -1,0 +1,15 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copiar código da aplicação
+COPY task_manager.py .
+
+# Criar diretório para dados
+RUN mkdir -p /data
+
+# Volume para persistência
+VOLUME ["/data"]
+
+# Comando para iniciar a aplicação
+CMD ["python", "task_manager.py"]

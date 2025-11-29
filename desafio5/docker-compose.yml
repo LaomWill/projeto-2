@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # Microsserviço de Usuários
+  user-service:
+    build: ./user-service
+    container_name: desafio5-user-service
+    networks:
+      - gateway-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:5001/health')"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+
+  # Microsserviço de Pedidos
+  order-service:
+    build: ./order-service
+    container_name: desafio5-order-service
+    networks:
+      - gateway-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:5002/health')"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+
+  # API Gateway
+  gateway:
+    build: ./gateway
+    container_name: desafio5-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      - USER_SERVICE_URL=http://user-service:5001
+      - ORDER_SERVICE_URL=http://order-service:5002
+    depends_on:
+      user-service:
+        condition: service_healthy
+      order-service:
+        condition: service_healthy
+    networks:
+      - gateway-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8080/health')"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+
+# Rede interna para comunicação entre serviços
+networks:
+  gateway-network:
+    driver: bridge
+    name: desafio5-gateway-network

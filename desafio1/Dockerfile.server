@@ -1,0 +1,15 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Instalar dependências
+RUN pip install --no-cache-dir flask requests
+
+# Copiar código do servidor
+COPY server.py .
+
+# Expor porta do servidor
+EXPOSE 8080
+
+# Comando para iniciar o servidor
+CMD ["python", "server.py"]

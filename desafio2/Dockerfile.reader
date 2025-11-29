@@ -1,0 +1,12 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Copiar código da aplicação
+COPY data_reader.py .
+
+# Volume para leitura dos dados persistidos
+VOLUME ["/data"]
+
+# Comando para iniciar a aplicação
+CMD ["python", "data_reader.py"]
