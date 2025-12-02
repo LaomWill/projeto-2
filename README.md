@@ -1,34 +1,45 @@
-# Projeto 2 - Computação Concorrente, Paralela e Distribuída
+Projeto 2 - Computação Concorrente, Paralela e Distribuída
 
-Disciplina: Fundamentos de Computação Concorrente, Paralela e Distribuída  
-Professor: Jorge Soares de Farias Júnior  
-Aluno: Luan Martins de Souza  
-Turma: ASD20252_4A  
+Disciplina: Fundamentos de Computação Concorrente, Paralela e Distribuída
+Professor: Jorge Soares de Farias Júnior
+Aluno: Luan Martins de Souza
+Turma: ASD20252_4A
 
----
+------------------------------
 
-## Descrição
+DESCRIÇÃO
 
-Este projeto contém uma coleção de desafios relacionados ao uso de Docker, Docker Compose e arquitetura de microsserviços.  
-O objetivo é entender melhor como funciona a comunicação entre serviços e a orquestração de containers.
+Projeto com desafios usando Docker e microsserviços.
+Objetivo: praticar comunicação entre serviços e uso de containers.
 
----
+------------------------------
 
-## Desafios
+DESAFIOS
 
-Cada desafio está em uma pasta separada:
+1. Cliente e Servidor
+2. Docker Compose
+3. App Python em Container
+4. Comunicação entre Serviços
+5. Estrutura com Múltiplos Serviços
 
-- **Desafio 1** – Comunicação cliente-servidor
-- **Desafio 2** – Orquestração com Docker Compose
-- **Desafio 3** – Aplicação Python conteinerizada
-- **Desafio 4** – Comunicação entre microsserviços
-- **Desafio 5** – Estrutura completa com múltiplos serviços
+------------------------------
 
----
+COMO EXECUTAR
 
-## Como executar
+Entre na pasta do desafio:
+cd desafio1 (ou outro número)
 
-Entre na pasta do desafio que deseja rodar:
+Execute:
+docker-compose up --build -d
 
-```bash
-cd desafioX
+Verifique:
+docker-compose ps
+
+Pare:
+docker-compose down
+
+------------------------------
+
+REQUISITOS
+
+Docker e Docker Compose instalados.
