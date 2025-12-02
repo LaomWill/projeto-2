@@ -1,6 +1,7 @@
 Projeto 2 - Computação Concorrente, Paralela e Distribuída
 
-Disciplina: Fundamentos de Computação Concorrente, Paralela e Distribuída
+Disciplina: Fundamentos de Computação Concorrente, Paralela e Distribuída.
+
 Professor: Jorge Soares de Farias Júnior
 Aluno: Luan Martins de Souza
 Turma: ASD20252_4A
